@@ -121,7 +121,7 @@ jobs:
 
               if [[ -f "${compiled_image}" ]]; then
                   cp -f "${compiled_image}" "${{ env.ANYKERNEL }}/Image" || true
-                  cp -f "${compiled_image}" "${{ env.OUTPUT_DIR }}r/Image" || true
+                  cp -f "${compiled_image}" "${{ env.OUTPUT_DIR }}/Image" || true
               elif [[ -f "${compiled_gz_image}" ]]; then
                   cp -f "${compiled_gz_image}" "${{ env.ANYKERNEL }}/Image.gz" || true
                   cp -f "${compiled_gz_image}" "${{ env.OUTPUT_DIR }}/Image.gz" || true
