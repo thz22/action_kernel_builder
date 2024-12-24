@@ -48,14 +48,14 @@ jobs:
           
       - name: Cloning Kernel Source
         run: |
-          git clone --single-branch --depth=1 --no-tags ${{ github.event.inputs.KERNEL_SOURCE }} -b ${{ github.event.inputs.KERNEL_BRANCH }} ${{ github.workspace }}
+          git clone --single-branch --depth=1 --no-tags ${{ github.event.inputs.KERNEL_SOURCE }} -b ${{ github.event.inputs.KERNEL_BRANCH }} ${{ github.workspace }}/kernel
           echo "COMMIT_ID=$(git rev-parse HEAD)" >> $GITHUB_ENV
 
       - name: Set-up Toolchain
         run: |
+         mkdir -p ${{ github.workspace }}/toolchain
          if [[ "${{ github.event.inputs.TOOLCHAIN_URL }}" == *.tar.gz ]]; then
              wget -O clang-toolchain.tar.gz "${{ github.event.inputs.TOOLCHAIN_URL }}"
-             mkdir -p ${{ github.workspace }}/toolchain
              tar -xzf clang-toolchain.tar.gz -C ${{ github.workspace }}/toolchain
              rm -f clang-toolchain.tar.gz
          else
@@ -64,7 +64,7 @@ jobs:
 
       - name: Set environment variables
         run: |
-          echo "OBJDIR=${{ github.workspace }}/out" >> $GITHUB_ENV
+          echo "OBJDIR=${{ github.workspace }}/kernel/out" >> $GITHUB_ENV
           echo "ANYKERNEL=${{ github.workspace }}/anykernel" >> $GITHUB_ENV
           echo "CLANG_DIR=${{ github.workspace }}/toolchain" >> $GITHUB_ENV
           echo "KERNEL_NAME=${{ github.event.inputs.KERNEL_NAME }}" >> $GITHUB_ENV
@@ -83,7 +83,7 @@ jobs:
          }
          
          compile() {
-            cd "${{ github.workspace }}"
+            cd "${{ github.workspace }}/kernel"
             
             make -j$(nproc --all) \
             O=${{ env.OBJDIR }} \
