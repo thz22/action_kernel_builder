@@ -104,6 +104,10 @@ jobs:
          make_defconfig
          compile
 
+         end=$(date +"%s")
+         diff=$((end - start))
+         echo -e "BUILD COMPLETED IN ${diff} SECONDS"
+
         continue-on-error: false
          
       - name: Checking for outputs
@@ -144,10 +148,6 @@ jobs:
               mv -- "AnyKernel.zip" "${{ env.ZIP_NAME }}"
               mv -- "${{ env.ANYKERNEL }}/${{ env.ZIP_NAME }}" "${{ env.OUTPUT_DIR }}/${{ env.ZIP_NAME }}"
               rm -rf "${{ env.ANYKERNEL }}"
-            
-              end=$(date +"%s")
-              diff=$((end - start))
-              echo -e "BUILD COMPLETED IN ${diff} SECONDS"
          else
               echo "ERROR: Some output is missing!"
               exit 1
