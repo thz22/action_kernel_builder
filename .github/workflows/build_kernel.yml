@@ -49,8 +49,7 @@ jobs:
       - name: Cloning Kernel Source
         run: |
           git clone --single-branch --depth=1 --no-tags ${{ github.event.inputs.KERNEL_SOURCE }} -b ${{ github.event.inputs.KERNEL_BRANCH }} ${{ github.workspace }}/kernel
-          echo "COMMIT_ID=$(git rev-parse HEAD)" >> $GITHUB_ENV
-
+          
       - name: Set-up Toolchain
         run: |
          mkdir -p ${{ github.workspace }}/toolchain
@@ -70,6 +69,7 @@ jobs:
           echo "KERNEL_NAME=${{ github.event.inputs.KERNEL_NAME }}" >> $GITHUB_ENV
           echo "ZIP_NAME=${{ github.event.inputs.KERNEL_NAME }}-$(date +"%d%m%Y").zip" >> $GITHUB_ENV
           echo "OUTPUT_DIR=${{ github.workspace }}/compiled" >> $GITHUB_ENV
+          cd ${{ github.workspace }}/kernel && echo "COMMIT_ID=$(git rev-parse HEAD)" >> $GITHUB_ENV
 
           KERNEL_SOURCE_URL="${{ github.event.inputs.KERNEL_SOURCE }}"
           if [[ "${KERNEL_SOURCE_URL}" == *.git ]]; then
