@@ -123,7 +123,7 @@ jobs:
          compiled_gz_image="arch/arm64/boot/Image.gz"
          compiled_gz_dtb="arch/arm64/boot/Image.gz-dtb"
          compiled_dtbo="arch/arm64/boot/dtbo.img"
-         compiled_dtb="arch/arm64/boot/dtb.img"
+         compiled_dtb="arch/arm64/boot/dtb"
            
          if [[ -f ${compiled_image} || -f ${compiled_gz_image} || -f ${compiled_gz_dtb} ]]; then
               git clone -q ${{ github.event.inputs.ANYKERNEL }} "${{ env.ANYKERNEL }}"
@@ -145,8 +145,8 @@ jobs:
               fi
               
               if [[ -f "${compiled_dtb}" ]]; then
-                  cp -f "${compiled_dtb}" "${{ env.ANYKERNEL }}/dtb.img" || true
-                  cp -f "${compiled_dtb}" "${{ env.OUTPUT_DIR }}/dtb.img" || true
+                  cp -f "${compiled_dtb}" "${{ env.ANYKERNEL }}/dtb" || true
+                  cp -f "${compiled_dtb}" "${{ env.OUTPUT_DIR }}/dtb" || true
               fi
 
               cd "${{ env.ANYKERNEL }}"
