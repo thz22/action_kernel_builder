@@ -10,7 +10,7 @@ on:
       KERNEL_BRANCH:
         description: 'Kernel branch'
         required: true
-        default: 'ksu-next'
+        default: 'qpr3'
       KERNEL_NAME:
         description: 'Kernel/zip name'
         required: true
@@ -84,7 +84,7 @@ jobs:
          
          export PATH="${{ env.CLANG_DIR }}/bin:$PATH"
 
-         curl -LSs "https://raw.githubusercontent.com/AzyrRuthless/KernelSU-Next/next/kernel/setup.sh" | bash -
+         curl -LSs "https://raw.githubusercontent.com/thiagochizz44/KernelSU-Next/next/kernel/setup.sh" | bash -
          
          make_defconfig() {
             start=$(date +"%s")
