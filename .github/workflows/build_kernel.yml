@@ -6,11 +6,11 @@ on:
       KERNEL_SOURCE:
         description: 'Kernel source URL'
         required: true
-        default: 'https://github.com/thz22/android_kernel_motorola_sm6150.git'
+        default: 'https://github.com/thz22/androi_kernel_motorola_sm6150.git'
       KERNEL_BRANCH:
         description: 'Kernel branch'
         required: true
-        default: 'testv8s'
+        default: 'lineage-20.0'
       KERNEL_NAME:
         description: 'Kernel/zip name'
         required: true
@@ -22,7 +22,7 @@ on:
       TOOLCHAIN_URL:
         description: "Clone URL of your toolchain"
         required: true
-        default: 'https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/tags/android-15.0.0_r1/clang-r522817.tar.gz'
+        default: 'https://github.com/AOSP-11/prebuilts_clang_host_linux-x86_clang-r458507.git'
       ANYKERNEL:
         description: "Clone URL of your AnyKernel"
         required: true
