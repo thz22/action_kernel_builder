@@ -10,7 +10,7 @@ on:
       KERNEL_BRANCH:
         description: 'Kernel branch'
         required: true
-        default: 'lineage-20.0'
+        default: 'test11'
       KERNEL_NAME:
         description: 'Kernel/zip name'
         required: true
@@ -22,7 +22,7 @@ on:
       TOOLCHAIN_URL:
         description: "Clone URL of your toolchain"
         required: true
-        default: 'https://github.com/AOSP-11/prebuilts_clang_host_linux-x86_clang-r458507.git'
+        default: 'https://gitlab.com/LeCmnGend/clang.git'
       ANYKERNEL:
         description: "Clone URL of your AnyKernel"
         required: true
