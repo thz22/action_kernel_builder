@@ -6,11 +6,11 @@ on:
       KERNEL_SOURCE:
         description: 'Kernel source URL'
         required: true
-        default: 'https://github.com/thiagochizz44/kernel_motorola_liber.git'
+        default: 'https://github.com/thiagochizz44/android_kernel_motorola_sm6150'
       KERNEL_BRANCH:
         description: 'Kernel branch'
         required: true
-        default: 'qpr3'
+        default: 'a15'
       KERNEL_NAME:
         description: 'Kernel/zip name'
         required: true
