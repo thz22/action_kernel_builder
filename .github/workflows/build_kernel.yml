@@ -6,11 +6,11 @@ on:
       KERNEL_SOURCE:
         description: 'Kernel source URL'
         required: true
-        default: 'https://github.com/thz22/androi_kernel_motorola_sm6150.git'
+        default: 'https://github.com/thz22/kernel_motorola_liber'
       KERNEL_BRANCH:
         description: 'Kernel branch'
         required: true
-        default: 'test11'
+        default: 'test-magic-a11'
       KERNEL_NAME:
         description: 'Kernel/zip name'
         required: true
@@ -58,7 +58,7 @@ jobs:
              tar -xzf clang-toolchain.tar.gz -C ${{ github.workspace }}/toolchain
              rm -f clang-toolchain.tar.gz
          else
-             git clone --single-branch --depth=1 --no-tags ${{ github.event.inputs.TOOLCHAIN_URL }} ${{ github.workspace }}/toolchain
+             git clone --single-branch --depth=1 --no-tags ${{ github.event.inputs.TOOLCHAIN_URL }} -b clang-18 ${{ github.workspace }}/toolchain
          fi
 
       - name: Set environment variables
