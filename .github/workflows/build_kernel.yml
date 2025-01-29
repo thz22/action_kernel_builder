@@ -22,7 +22,7 @@ on:
       TOOLCHAIN_URL:
         description: "Clone URL of your toolchain"
         required: true
-        default: 'https://github.com/Neutron-Toolchains/clang-build-catalogue/releases/download/10032024/neutron-clang-10032024.tar.zst'
+        default: 'https://gitlab.com/itsshashanksp/android_prebuilts_clang_host_linux-x86_clang-r530567.git'
       ANYKERNEL:
         description: "Clone URL of your AnyKernel"
         required: true
